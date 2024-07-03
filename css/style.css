@@ -155,8 +155,7 @@ header .hambox {
 header .ham {
     display: none
 }
-
-header .m_inner {
+header .menu{
     width: 110px;
     height: 300px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -165,13 +164,13 @@ header .m_inner {
     right: 0;
 }
 
-header .m_inner .close {
+header .menu .m_inner .close {
     position: absolute;
     top: 15px;
     right: 15px;
 }
 
-header .m_inner ul {
+header .menu .m_inner ul {
     width: 56px;
     height: 210px;
     color: #fff;
@@ -185,7 +184,7 @@ header .m_inner ul {
 
 }
 
-header .m_inner ul li {
+header .menu .m_inner ul li {
     width: 54px;
     height: 17px;
     position: relative;
@@ -194,16 +193,16 @@ header .m_inner ul li {
 
 }
 
-header .m_inner ul li a {
+header .menu .m_inner ul li a {
     position: relative;
     z-index: 98;
 }
 
-header .m_inner ul li:last-child {
+header .menu .m_inner ul li:last-child {
     width: 47px;
 }
 
-header .m_inner ul li span {
+header .menu .m_inner ul li span {
     display: block;
     width: 10px;
     height: 10px;
@@ -216,6 +215,14 @@ header .m_inner ul li span {
 }
 
 header .menu {
+    transform: translateY(-1000px);
+}
+
+
+header .h_inner nav ul li span {
+ transform: translateY(-1000px);
+}
+header .menu .m_inner ul li span{
     transform: translateY(-1000px);
 }
 
@@ -321,6 +328,15 @@ header .menu {
     margin-bottom: 30px;
 }
 
+.s1 .topbox .rightbox .t1_slick figure img{
+    border-radius: 10px;
+}
+
+.s1 .btnbox .leftbox .t2_slick figure img{
+    border-radius: 10px;
+}
+
+
 /*//section01*/
 
 /*section02*/
@@ -335,19 +351,20 @@ header .menu {
 }
 
 .s2 .allbox {
-    width: 100%;
+    width: calc(100% - 100px);
+    padding: 0 20px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
 }
 
 .s2 .allbox .box {
-    max-width: 384px;
     width: 100%;
-    height: 446px;
     text-align: center;
+    margin-bottom:50px;
+}
+.s2 .allbox .box figure{
     margin-bottom: 30px;
 }
 
@@ -382,6 +399,8 @@ header .menu {
     max-width: 384px;
     width: 100%;
     padding: 6px 0;
+
+    
 }
 
 .s3 .box p {
@@ -391,14 +410,25 @@ header .menu {
 
 }
 
-.s3 .box img {
+.s3 .box:hover img{
+    scale: 1.1 1.1;
+}
+.s3 .box figure{
     border-radius: 10px;
+    overflow: hidden;
+}
+.s3 .box img {
+    transition: .5s;
+    border-radius: 10px;
+
 }
 
 .s3 .v_box {
     padding-top: 48%;
     position: relative;
     margin: 6px 0;
+    border-radius: 10px;
+  
 }
 
 .s3 .container .r1 .c3 {
@@ -412,18 +442,25 @@ iframe {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    transition: .5s;
 }
 
-video {
-    width: 756px;
-    height: 372px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+.s3 .r1 .c2 .v_box{
+    overflow: hidden;
 }
+
+.s3 .r1 .c6 .v_box{
+    overflow: hidden;
+}
+.s3 iframe:hover{
+    scale: 1.1;
+}
+
+
+
+
+
+
 
 
 /*//section03*/
@@ -469,10 +506,11 @@ footer .f_inner .textbox p {
 footer .f_inner .textbox p:last-child {
     font-size: 12px;
     color: #808080;
-
     margin-top: 20px;
     text-align: center;
 }
+
+
 
 .ador {
     position: absolute;
@@ -582,7 +620,7 @@ footer .f_inner .textbox p:last-child {
     .s1 .btnbox .rightbox .track02 p {
         font-size: 28px;
         text-align: center;
-        margin-bottom: 25px;
+        margin-bottom: 60px;
     }
 
 
@@ -619,12 +657,10 @@ footer .f_inner .textbox p:last-child {
 
 }
 
-@media screen and (max-width:992px) {
-    .s2 .allbox .box {
-        max-width: 265px;
-        height: 318px;
+@media screen and (max-width:991px) {
+    .s2 .allbox{
+        width: calc(100% - 40px);
     }
-
 
 }
 
@@ -684,25 +720,24 @@ footer .f_inner .textbox p:last-child {
         font-size: 14px;
     }
 
-
-
-
-    .s3 .container .r1 .c3 {
-        display: block;
+    .s2 .allbox{
+        width: calc(100% - 15px);
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+    .s2 .allbox .box figure{
+        margin: auto;
     }
 
-    .s3 .container .r2 .c3_1 {
-        display: none;
-    }
 
-    .s3 .r3 .c7 .b7 {
+
+     .s3 .c7 .b7{
         max-width: 767px;
+     }
+    
 
-    }
 
-    .s3 .r1,
-    .s3 .r2,
-    .s3 .r3 {
+    .s3 .r1{
         display: flex;
         flex-wrap: wrap;
     }
@@ -724,23 +759,30 @@ footer .f_inner .textbox p:last-child {
         order: 3;
     }
 
-    .s3 .r2 .c4 {
+    .s3 .r1 .c4 {
         order: 4;
     }
 
-    .s3 .r2 .c5 {
+    .s3 .r1 .c5 {
         order: 5;
     }
 
-    .s3 .r3 .c6 {
+    .s3 .r1 .c6 {
         order: 7;
 
     }
 
-    .s3 .r3 .c7 {
+    .s3 .r1 .c7 {
         order: 6;
 
     }
 
 
+}
+
+@media screen and (max-width:430px) {
+    .s2 .allbox{
+        grid-template-columns: 1fr;        
+    }
+    
 }
