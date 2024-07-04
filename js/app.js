@@ -44,13 +44,13 @@ $(function(){
   $(window).resize(function(){
     let w = innerWidth
 
-    if(w > 1200){
+    if(w >= 1200){
       $(".ham").css({display:'none'})
     }else{
       $(".ham").css({display:'block'})
     }
 
-    if(w > 1200){
+    if(w >= 1200){
       $(".menu").css({display:'none'})
     }else{
       $(".menu").css({display:'block'})
